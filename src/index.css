@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom Base Styles === */
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-800 font-sans leading-relaxed antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-wide;
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+}
+
+  h1 {
+    @apply text-2xl;
+    @screen lg {
+      @apply text-4xl;
+    }
+  }
+
+  a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors duration-300;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+/* === Custom Components or Utilities (optional) === */
+@layer components {
+  .container-center {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-gray-700 mb-4;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300;
+  }
+}
+
+
+/* @media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+  }
+
+  .print-button, .close-button {
+    display: none !important;
+  }
+} */
+
+/* Add this in your global CSS */
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* Neon Flicker Effect */
+.neon-flicker {
+  color: #ff00ff;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 40px #ff00ff;
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* Flicker Keyframes */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #ff00ff,
+      0 0 10px #ff00ff,
+      0 0 20px #ff00ff,
+      0 0 40px #ff00ff;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+.input {
+  @apply border rounded-lg px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400;
+}
+.input-file {
+  @apply text-sm text-green-600;
+}
